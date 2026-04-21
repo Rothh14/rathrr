@@ -1,0 +1,330 @@
+/* ==========================================================================
+   GLOBAL SETTINGS
+   ========================================================================== */
+body {
+    background-color: #FADADD;
+    font-family: 'Poppins', sans-serif;
+    color: #C71585;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+.navbar {
+    box-shadow: 0 2px 10px rgba(199, 21, 133, 0.05);
+    padding: 0.7rem 1rem;
+}
+
+
+.img_cat {
+    height: 100px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: grayscale(10%);
+}
+
+.img_cat:hover {
+    transform: translateY(-8px);
+    filter: grayscale(0%);
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    background-color: #fcfcfc;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(199, 21, 133, 0.1) !important;
+}
+
+/* Forces all product images to be exactly the same size */
+.card-img-top {
+    height: 240px; 
+    object-fit: cover; /* This makes sure the photo fills the space without stretching */
+    width: 100%;
+}
+
+.card-title {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #C71585;
+}
+
+.card-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: #FF8DA1;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    color: #C71585;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 35px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 4px;
+    background-color: #FFB6C1; /* Soft pink accent */
+    border-radius: 2px;
+}
+
+.badge-promo {
+    background-color: #C71585; /* Bold Rose */
+    color: #FADADD;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   CATEGORY LIST STYLING (Vertical)
+   ========================================================================== */
+
+/* The main container box */
+.category-card {
+    background: #fcfcfc;
+    border-radius: 20px;
+    border: 1px solid #FFC0CB;
+    overflow: hidden;
+}
+
+/* The pink "CATEGORY" title */
+.category-header {
+    font-family: 'Cormorant Garamond', serif;
+    color: #C71585; 
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* Individual list rows */
+.list-group-item {
+    padding: 12px 20px;
+    transition: background 0.2s ease;
+    color: #C71585;
+}
+
+.list-group-item:hover {
+    background-color: #FADADD; /* Very light pink on hover */
+}
+
+/* The circular image containers */
+.category-circle-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #FFB6C1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-circle-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The text labels */
+.category-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    color: #C71585;
+    font-weight: 500;
+}
+
+/* The pink arrow on the right */
+.arrow-pink {
+    color: #FF8DA1;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+/* ─── RIGHT-SIDE ACTIONS ─────────────────── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #FFC0CB;
+  border: 1px solid #FFB6C1;
+  border-radius: 50px;
+  padding: 8px 20px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s;
+}
+ 
+.nav-actions:hover {
+  border-color: #C71585;
+}
+ 
+/* ─── CART BUTTON ────────────────────────── */
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #C71585;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 4px 2px;
+  transition: color 0.3s;
+}
+ 
+.cart-btn:hover {
+  color: #FF8DA1;
+}
+ 
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+ 
+.cart-icon svg {
+  transition: transform 0.3s;
+  fill: #C71585;
+}
+ 
+.cart-btn:hover .cart-icon svg {
+  transform: scale(1.15) rotate(-5deg);
+}
+ 
+.cart-badge {
+  position: absolute;
+  top: -9px;
+  right: -10px;
+  background: linear-gradient(135deg, #C71585, #FF8DA1);
+  color: #FADADD;
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(199, 21, 133, 0.5);
+  animation: badge-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+ 
+@keyframes badge-pop {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+ 
+.cart-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+ 
+/* ─── DIVIDER ────────────────────────────── */
+.divider {
+  width: 1px;
+  height: 28px;
+  background: #FFB6C1;
+  border-radius: 1px;
+}
+ 
+/* ─── AUTH BLOCK ─────────────────────────── */
+.auth-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+ 
+.avatar-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FADADD;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FF8DA1;
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 0 2px #FFB6C1;
+}
+ 
+.auth-block:hover .avatar-ring {
+  color: #C71585;
+  box-shadow: 0 0 0 2px #C71585, 0 0 14px rgba(199, 21, 133, 0.3);
+}
+ 
+.auth-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1;
+}
+ 
+.auth-login,
+.auth-register {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+ 
+.auth-login {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #C71585;
+}
+ 
+.auth-register {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #FF8DA1;
+  text-transform: uppercase;
+}
+ 
+.auth-login:hover {
+  color: #FF8DA1;
+}
+ 
+.auth-register:hover {
+  color: #C71585;
+  letter-spacing: 0.08em;
+}
+ 
+/* ─── DEMO HINT ──────────────────────────── */
+.demo-hint {
+  text-align: center;
+  margin-top: 40px;
+  color: #FF8DA1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.6;
+}
+ 
+/* ─── RESPONSIVE ─────────────────────────── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .navbar { padding: 0 20px; }
+  .cart-label { display: none; }
+  .nav-actions { gap: 14px; padding: 8px 14px; }
+}
