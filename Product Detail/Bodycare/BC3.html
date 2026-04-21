@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rothrr Beauty</title>
+  <link rel="stylesheet" href="../../asset/css/ProductDetail.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <span class="nav-link">Shop</span>
+        <span class="nav-link">Collections</span>
+      </div>
+      <div class="logo">
+        <span class="logo-text">Rothrr</span>
+        <span class="logo-sub">BEAUTY</span>
+      </div>
+      <div class="header-right">
+        <span class="nav-link">About</span>
+        <span class="nav-icon">🛒</span>
+      </div>
+    </div>
+    <div class="header-tagline">Bee K-Beauty &amp; Beyond</div>
+  </header>
+
+  <!-- MAIN PRODUCT SECTION -->
+  <main class="product-page">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <span>Home</span>
+      <span class="sep">/</span>
+      <span>Suncare</span>
+      <span class="sep">/</span>
+      <span class="active">Chierra Sun Glow</span>
+    </nav>
+
+    <div class="product-container">
+
+      <!-- LEFT: Images -->
+      <div class="product-gallery">
+        <div class="main-image-wrap">
+          <div class="badge">42% OFF</div>
+          <img
+            src="../../category photo/Bodycare/BC3.Png"
+            alt="TOCOBO Vita Soft Daily Sun Lotion"
+            class="main-image"
+          />
+        </div>
+        <div class="thumbnails">
+          
+        </div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="product-info">
+
+        <div class="brand-tag">Chierra</div>
+        <h1 class="product-title">*Pink* Vita Soft <br/>Sun Glow <span class="size">150ml</span></h1>
+
+        <div class="rating">
+          <span class="stars">★★★★★</span>
+          <span class="review-count">(6 reviews)</span>
+        </div>
+
+        <div class="price-block">
+          <div class="price-row">
+            <span class="label">PRICE</span>
+            <div class="price-group">
+              <span class="current-price">15.08 USD</span>
+              <span class="discount-badge">42%</span>
+            </div>
+          </div>
+          <div class="price-row retail">
+            <span class="label">RETAIL</span>
+            <div class="retail-group">
+              <span class="original-price">26.00 USD</span>
+              <span class="saved">You saved 11 USD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="qty-block">
+          <span class="label">QTY</span>
+          <div class="qty-control">
+            <button class="qty-btn" id="decrease">−</button>
+            <span class="qty-value" id="qty">1</span>
+            <button class="qty-btn" id="increase">+</button>
+          </div>
+        </div>
+
+        <div class="total-row">
+          <span class="total-label">TOTAL PRICE</span>
+          <span class="total-price" id="totalPrice">15.08 USD</span>
+        </div>
+
+        <div class="cta-group">
+          <button class="btn-cart">ADD TO CART</button>
+          <button class="btn-wish">ADD TO WISH LIST</button>
+        </div>
+
+        <div class="guarantee">
+          <span class="check">✔</span> 100% Authentic Product Guarantee
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab active" data-tab="details">DETAILS</button>
+          <button class="tab" data-tab="about">ABOUT Chierra/button>
+        </div>
+
+        <div class="tab-content" id="details">
+          <table class="details-table">
+            <tr><td class="dt-key">Brand</td><td>Chierra</td></tr>
+            <tr><td class="dt-key">Code</td><td>BC3-SDL</td></tr>
+            <tr><td class="dt-key">Weight</td><td>150g (0.33 lbs)</td></tr>
+            <tr><td class="dt-key">SPF</td><td>SPF50+ PA++++</td></tr>
+            <tr><td class="dt-key">Type</td><td>Very High Protection</td></tr>
+          </table>
+        </div>
+
+        <div class="tab-content hidden" id="about">
+          <p class="about-text">Chierra is a Korean beauty brand dedicated to crafting gentle, effective skincare solutions rooted in botanical ingredients and modern science. Known for innovative sun care and skin-barrier products.</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-deco">✦ ✦ ✦</div>
+    <div class="footer-tagline">Glow from the inner</div>
+    <div class="footer-brand">Rothrr Beauty © 2026</div>
+    <div class="footer-links">
+      <span>Privacy Policy</span>
+      <span>·</span>
+      <span>Terms of Service</span>
+      <span>·</span>
+      <span>Contact Us</span>
+    </div>
+  </footer>
+
+  <script>
+    // Qty logic
+    let qty = 1;
+    const unitPrice = 11.08;
+    document.getElementById('decrease').addEventListener('click', () => {
+      if (qty > 1) { qty--; update(); }
+    });
+    document.getElementById('increase').addEventListener('click', () => {
+      qty++; update();
+    });
+    function update() {
+      document.getElementById('qty').textContent = qty;
+      document.getElementById('totalPrice').textContent = (unitPrice * qty).toFixed(2) + ' USD';
+    }
+
+    // Tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
